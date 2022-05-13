@@ -76,6 +76,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
                 {'password': 'Password must much'}
             )
         account.set_password(password)
+        account.is_verified=True
         account.save()
         return account
 
