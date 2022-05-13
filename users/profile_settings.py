@@ -1,5 +1,5 @@
 PROFILE_UPLOAD_DIR = 'users/profile'
-HOST_OF_SERVER = 'http://localhost:8000'
+HOST_OF_SERVER = 'http://164.92.190.147:8003'
 
 
 class UserType:
