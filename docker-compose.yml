@@ -23,18 +23,5 @@ services:
       - "8003:8003"
     depends_on:
       - mk_auth_db
-
-  nginx:
-    image: nginx:latest
-    restart: always
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - mk_auth_db
-      - auth
-    ports:
-      - "83:83"
-      - "444:444"
-
 volumes:
   postgres_data:
