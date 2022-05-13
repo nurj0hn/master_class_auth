@@ -6,4 +6,4 @@ media
 __pycache__/
 *.py[cod]
 *$py.class
-# users/migrations/*.py
+users/migrations/*.py
