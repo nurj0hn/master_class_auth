@@ -8,24 +8,10 @@ from .models import User
 
 class CustomUserAdmin(UserAdmin):
     model = User
-    list_display = ('username', 'email', 'is_verified', 'is_active',)
+    list_display = ('username', 'is_verified', 'is_active',)
     list_filter = ('is_superuser',)
     list_editable = ('is_verified',)
-    readonly_fields = ('date_joined', 'last_login',)
-    fieldsets = (
-        ('Основное', {'fields': ('email', 'username', 'first_name', 'last_name', 'password', 'photo',)}),
-        ('Даты', {'fields': ('date_joined', 'last_login',)}),
-        ('Разрешения', {'fields': ('is_superuser', 'is_verified', 'is_active')}),
-    )
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('email', 'username', 'photo', 'password1', 'password2', 'is_active',)}
-         ),
-    )
-    search_fields = ('email', 'username', 'user_type')
-    ordering = ('email',)
-    list_display_links = ('username', 'email',)
+    readonly_fields = ('date_joined',)
 
 
 admin.site.register(User, CustomUserAdmin)
