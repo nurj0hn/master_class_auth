@@ -64,8 +64,7 @@ class RegistrationAPIView(generics.GenericAPIView):
         "user": UserSerializer(instance=user, context={'request': request}).data,
         "refresh": str(refresh),
         "access": str(refresh.access_token)
-    }
-
+        }
         return Response(data, status=status.HTTP_201_CREATED)
 
 class RequestPasswordResetEmail(generics.GenericAPIView):
