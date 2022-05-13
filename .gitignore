@@ -1,0 +1,9 @@
+.idea
+venv
+.env
+static
+media
+__pycache__/
+*.py[cod]
+*$py.class
+# users/migrations/*.py
