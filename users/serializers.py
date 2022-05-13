@@ -47,13 +47,24 @@ class UserSerializer(serializers.ModelSerializer):
         # print(instance)
         return data
 
+
+class LoginResponseSerializer(serializers.Serializer):
+    """
+        Serializer for output after login user
+    """
+    user = UserSerializer()
+    refresh = serializers.CharField()
+    access = serializers.CharField()
+
+
+
 class RegistrationSerializer(serializers.ModelSerializer):
     """
         Serializer for registration user
     """
     password = PasswordField(required=True, allow_blank=False, allow_null=False)
     password2 = PasswordField(required=True, allow_blank=False, allow_null=False)
-
+    # token = serializers.CharField(max_length=555)
     class Meta:
         model = User
         fields = [
@@ -79,25 +90,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
         account.is_verified=True
         account.save()
         return account
-
-
-class LoginResponseSerializer(serializers.Serializer):
-    """
-        Serializer for output after login user
-    """
-    user = UserSerializer()
-    refresh = serializers.CharField()
-    access = serializers.CharField()
-
-class EmailVerificationSerializer(serializers.ModelSerializer):
-    """
-        Serializer for email verufication
-    """
-    token = serializers.CharField(max_length=555)
-
-    class Meta:
-        model = User
-        fields = ['token']
 
 
 class LoginSerializer(serializers.Serializer):
